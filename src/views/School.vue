@@ -2,22 +2,21 @@
   <ion-page>
     <ion-header :translucent="true">
       <ion-toolbar>
-        <ion-title>Home</ion-title>
+        <ion-title>School</ion-title>
         <ion-button color="light"><a href="/login">Logar</a></ion-button>
-        <ion-button color="light"><a href="/school">Escola</a></ion-button>
       </ion-toolbar>
     </ion-header>
     
     <ion-content :fullscreen="true">
       <ion-header collapse="condense">
         <ion-toolbar>
-          <ion-title size="large">Home</ion-title>
+          <ion-title size="large">Blank</ion-title>
         </ion-toolbar>
       </ion-header>
     
       <div id="container">
-        <strong>VOCÊ ESTA NA TELA HOME.</strong>
-             </div>
+        <strong>VOCÊ ESTA NA TELA SCHOOL.</strong>
+      </div>
     </ion-content>
   </ion-page>
 </template>
@@ -27,7 +26,7 @@ import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: 'Home',
+  name: 'School',
   components: {
     IonContent,
     IonHeader,

@@ -2,7 +2,7 @@
   <ion-page>
     <ion-header :translucent="true">
       <ion-toolbar>
-        <ion-title>Seja bem-vindo a Tela de Login</ion-title>
+        <ion-title>Veja quantos anos você tem!</ion-title>
       </ion-toolbar>
     </ion-header>
     
@@ -11,27 +11,22 @@
         <ion-toolbar>
           <ion-title size="large">Login</ion-title>
         </ion-toolbar>
-      </ion-header>
-    
-      <div id="container">
-        
-        <IonCard id="card">
-        <ion-label>User</ion-label>
-        <ion-input placeholder="Enter Input"></ion-input> 
-
-        <ion-label>Senha</ion-label>
-        <ion-input type="password"></ion-input>
-         
-        <ion-button color="light"><a href="/home">Logar</a></ion-button>
-        
-        </IonCard>
-      </div>
+           </ion-header>
+           
+     <ion-item>
+        <ion-label position="floating">Data :</ion-label>
+        <ion-input type = "date" v-model="valorInput"></ion-input>
+      </ion-item>
+      <ion-button @click="validarIdade()"> Validar</ion-button>
+      <ion-item>
+        <ion-label> {{idade}}</ion-label>
+      </ion-item>
     </ion-content>
   </ion-page>
 </template>
 
 <script lang="ts">
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonLabel, IonInput, IonCard } from '@ionic/vue';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonLabel, IonInput, IonItem } from '@ionic/vue';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
@@ -45,10 +40,25 @@ export default defineComponent({
     IonButton,
     IonLabel,
     IonInput,
-    IonCard
-  }
-});
+    IonItem,
+  },
 
+ methods: {
+    validarIdade() {
+      const dataNasc = new Date(this.valorInput);
+      const hoje = new Date();
+      const idade = hoje.getFullYear() - dataNasc.getFullYear();
+      this.idade = idade;
+      console.log(`A sua idade é: ${idade}`);
+    }
+  },
+  data() {
+    return {
+      valorInput: '',
+      idade: 0,
+    }
+  },
+});
  //function mudarTela(){
         // muda a tela pra home
       //  const texto = document.getElementsByTagName('h1')[0];
